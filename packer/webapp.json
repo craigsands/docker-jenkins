@@ -1,0 +1,31 @@
+{
+  "builders": [
+    {
+      "ami_name": "webapp-{{timestamp}}",
+      "instance_type": "{{user `instance_type`}}",
+      "region": "{{user `aws_region`}}",
+      "source_ami_filter": {
+        "filters": {
+          "product-code": "aw0evgkw8e5c1q413zgy5pjce",
+          "virtualization-type": "hvm"
+        },
+        "most_recent": "true",
+        "owners": [
+          "aws-marketplace"
+        ]
+      },
+      "ssh_pty": "true",
+      "ssh_username": "centos",
+      "subnet_id": "{{user `aws_subnet_id`}}",
+      "type": "amazon-ebs",
+      "vpc_id": "{{user `aws_vpc_id`}}"
+    }
+  ],
+  "post-processors": [],
+  "variables": {
+    "aws_region": null,
+    "aws_subnet_id": null,
+    "aws_vpc_id": null,
+    "instance_type": null
+  }
+}
