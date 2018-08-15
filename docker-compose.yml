@@ -1,13 +1,11 @@
-version: '3'
+version: '2'
 services:
-
-  jenkins:
-    image: jenkinsci/blueocean
-    container_name: docker-jenkins
-    ports:
-      - '8080:8080'
-      #- '50000:50000'
-    #environment:
-    #    LOG_LEVEL: debug
-    volumes:
-      - ./jenkins_home:/var/jenkins_home
+    jenkins.docker:
+        image: shimmi/jenkins
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./jenkins_home:/var/jenkins_home
+            - /var/run/docker.sock:/var/run/docker.sock
+        group_add:
+            - docker
