@@ -1,10 +1,12 @@
 # pipeline demo
 
-```
-mkdir jenkins_home
-chown 1000:1000 jenkins_home
-docker-compose up
-docker exec -it docker-jenkins /bin/bash -c "cat /var/jenkins_home/secrets/initialAdminPassword"
+### Start Jenkins
+```bash docker-compose up```
+
+### Get admin password
+```bash
+docker exec -it docker-jenkins \
+  /bin/bash -c "cat /var/jenkins_home/secrets/initialAdminPassword"
 ```
 
 

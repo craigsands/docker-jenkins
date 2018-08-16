@@ -1,11 +1,20 @@
-version: '2'
+version: '3'
 services:
-    jenkins.docker:
-        image: shimmi/jenkins
-        ports:
-            - "8080:8080"
-        volumes:
-            - ./jenkins_home:/var/jenkins_home
-            - /var/run/docker.sock:/var/run/docker.sock
-        group_add:
-            - docker
+
+  jenkins:
+    image: jenkinsci/blueocean
+    container_name: docker-jenkins
+    ports:
+      - '8080:8080'
+    user: root
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - C:\Users\sandcr01\.aws:/root/.aws
+
+#  test:
+#    image: amazonlinux:latest
+#    #build: .
+#    container_name: al
+#    volumes:
+#      - ./deployment:/var/deployment
