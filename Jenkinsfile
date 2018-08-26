@@ -3,12 +3,12 @@ pipeline {
   stages {
     stage('Check') {
       steps {
-        sh 'pwd'
+        sh 'pwd && mkdir test && cd test'
       }
     }
-    stage('') {
+    stage('error') {
       steps {
-        pwd()
+        sh 'pwd'
       }
     }
   }
